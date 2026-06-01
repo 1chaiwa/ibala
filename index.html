@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Zambian Plant Disease Detector - Identify plants and diseases affecting Zambian crops">
+    <meta name="author" content="Zambia Farmers Disease Detector">
+    <title>Zambia Plant Disease Detector - Identify Plants & Diseases</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="zambia-flag"></div>
+            <h1>🇿🇲 Zambia Plant Disease Detector</h1>
+            <p>Chizindikiro cha Matenda a Zomera mu Zambia</p>
+            <p class="subtitle">Identify Plants & Crop Diseases | Kuzindikira Zomera ndi Matenda</p>
+        </header>
+
+        <div class="camera-section">
+            <div class="video-container" id="videoContainer">
+                <video id="video" autoplay playsinline muted></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+                <div class="camera-overlay">
+                    <p>📷 Chotsa chithunzi cha tsamba lomwe lili ndi matenda</p>
+                    <p class="small">Take photo of affected leaf</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="startCameraBtn" class="btn btn-primary">📸 Yambitsa Kamera (Back Camera)</button>
+                <button id="captureBtn" class="btn btn-success" disabled>🔍 Jambulani & Zindikirani</button>
+                <button id="uploadBtn" class="btn btn-secondary">📁 Kwezani Chithunzi</button>
+                <input type="file" id="fileInput" accept="image/*" capture="environment" style="display:none;">
+            </div>
+        </div>
+
+        <div id="resultSection" class="result-section" style="display:none;">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Kusanthula chithunzi...</p>
+                <p>Analyzing image...</p>
+                <p class="small-text">Izi zitha kutenga mphindi zochepa</p>
+            </div>
+            <div id="resultContent"></div>
+        </div>
+
+        <div class="info-section">
+            <h3>📋 Mwamsanga / Quick Guide:</h3>
+            <div class="zambian-crops">
+                <h4>🇿🇲 Zambian Crops Supported:</h4>
+                <div class="crop-tags">
+                    <span class="crop-tag">🌽 Maize (Chimanga)</span>
+                    <span class="crop-tag">🌾 Soybeans (Soya)</span>
+                    <span class="crop-tag">🥜 Groundnuts (Njugu)</span>
+                    <span class="crop-tag">🌻 Sunflower (Mpendadzuwa)</span>
+                    <span class="crop-tag">🍠 Cassava (Manioc)</span>
+                    <span class="crop-tag">🌶️ Cotton (Thonje)</span>
+                    <span class="crop-tag">🍅 Tomatoes (Matimati)</span>
+                    <span class="crop-tag">🧅 Onions (Anyezi)</span>
+                    <span class="crop-tag">🥬 Cabbage (Kabichi)</span>
+                    <span class="crop-tag">🍆 Eggplant (Biringanya)</span>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <strong>💡 Malangizo / Tips:</strong>
+                <ul>
+                    <li>Gwiritsani ntchito kuwala kwa dzuwa (Use natural daylight)</li>
+                    <li>Khalani ndi kamera yokhazikika (Hold camera steady)</li>
+                    <li>Onetsani tsamba lathunthu (Show entire leaf)</li>
+                    <li>Lowetsani m'munda kwa akatswiri ngati matenda afulike (Consult experts if disease spreads)</li>
+                </ul>
+            </div>
+            <p class="note">⚠️ Chidziwitso: Ichi ndi chithandizo chongoyerekeza. Funsani alimi akatswiri ku Zambia. | This is AI-assisted. Consult agricultural experts in Zambia.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
